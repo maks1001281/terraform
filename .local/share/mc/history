@@ -1,0 +1,20 @@
+[input-def]
+0=*
+
+[input2]
+0=/home/maks/project/packer/
+
+[cmdline]
+0=OC
+
+[Dir Hist New Right Panel]
+0=/
+1=/home
+2=/home/maks
+3=/home/maks/project
+4=/home/maks/project/packer
+
+[Dir Hist New Left Panel]
+0=/home/maks
+1=/home/maks/project/packer
+2=/home/maks/project
