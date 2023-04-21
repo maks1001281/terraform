@@ -1,0 +1,25 @@
+  - name: Download
+    ansible.builtin.get_url:
+      url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-x86_64-unknown-linux-gnu.tar.gz"
+      dest: /root/vector.tar.gz
+  - name: Unarchive
+    ansible.builtin.unarchive:
+      src: /root/vector.tar.gz
+      dest: /root
+      remote_src: yes
+  - name: pause
+    ansible.builtin.pause:
+      seconds: 3
+  - name: Cp bin
+    ansible.builtin.copy:
+      src: /root/vector-x86_64-unknown-linux-gnu/bin/vector
+      dest: /usr/bin/
+      mode: 755
+      remote_src: yes
+  - name: cp config
+    ansible.builtin.copy:
+      src: /root/vector-x86_64-unknown-linux-gnu/config/vector.toml
+      dest: /etc/vector/
+      remote_src: yes
+    tags:
+      - reconfig
